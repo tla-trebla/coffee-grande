@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b4ae5b62-77a7-4085-97ee-a2eef76c4226" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,6 +148,8 @@
       <workItem from="1574097095579" duration="311000" />
       <workItem from="1574155958593" duration="3399000" />
       <workItem from="1574175083558" duration="276000" />
+      <workItem from="1574241790326" duration="118000" />
+      <workItem from="1574241952119" duration="6045000" />
     </task>
     <servers />
   </component>
@@ -165,5 +168,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/database/factories/PaymentFactory.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
