@@ -19,7 +19,7 @@ class CreateReservationsTable extends Migration
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
-            $table->string('reservation_number')->default('#RE000000');
+            $table->string('reservation_number')->default('RE-########');
             $table->string('name');
             $table->string('phone');
             $table->string('email');

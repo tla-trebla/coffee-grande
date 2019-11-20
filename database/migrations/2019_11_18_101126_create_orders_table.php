@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
                 ->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('order_number')->default('#00000000');
+            $table->string('order_number')->default('OR-########');
             $table->enum('status',
                 ['not paid', 'being processed', 'ready to take', 'sending', 'done', 'canceled']);
             $table->string('name');
