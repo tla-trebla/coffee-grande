@@ -2,24 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Payment;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        //
+        $payments = DB::table('payments')->orderBy('id', 'DESC')->get();
+
+        return response()->json([
+            'payments' => $payments
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -29,30 +37,38 @@ class PaymentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
-        //
+        $payment = new Payment($request->all());
+
+        $payment->save();
+
+        return response()->json([
+            'payment' => $payment
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Payment $payment
+     * @return void
      */
-    public function show($id)
+    public function show(Payment $payment)
     {
-        //
+        return response()->json([
+            'payment' => $payment
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -62,23 +78,32 @@ class PaymentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Payment $payment
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Payment $payment)
     {
-        //
+        $payment->update($request->all());
+
+        return response()->json([
+            'payment' => $payment
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Payment $payment
+     * @return void
+     * @throws Exception
      */
-    public function destroy($id)
+    public function destroy(Payment $payment)
     {
-        //
+        $payment->delete();
+
+        return response()->json([
+            'payment' => $payment
+        ]);
     }
 }
