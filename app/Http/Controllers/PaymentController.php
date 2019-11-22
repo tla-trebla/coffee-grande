@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePaymentRequest;
+use App\Http\Requests\UpdatePaymentRequest;
 use App\Payment;
 use Exception;
 use Illuminate\Http\Request;
@@ -37,10 +39,10 @@ class PaymentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param StorePaymentRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(StorePaymentRequest $request)
     {
         $payment = new Payment($request->all());
 
@@ -78,11 +80,11 @@ class PaymentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdatePaymentRequest $request
      * @param Payment $payment
      * @return void
      */
-    public function update(Request $request, Payment $payment)
+    public function update(UpdatePaymentRequest $request, Payment $payment)
     {
         $payment->update($request->all());
 

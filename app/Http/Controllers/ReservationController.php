@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreReservationRequest;
+use App\Http\Requests\UpdateReservationRequest;
 use App\Reservation;
 use Exception;
 use Illuminate\Http\Request;
@@ -37,10 +39,10 @@ class ReservationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param StoreReservationRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(StoreReservationRequest $request)
     {
         $reservation = new Reservation($request->all());
 
@@ -78,11 +80,11 @@ class ReservationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdateReservationRequest $request
      * @param Reservation $reservation
      * @return void
      */
-    public function update(Request $request, Reservation $reservation)
+    public function update(UpdateReservationRequest $request, Reservation $reservation)
     {
         $reservation->update($request->all());
 
