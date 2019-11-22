@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreOrderRequest;
+use App\Http\Requests\UpdateOrderRequest;
 use App\Order;
 use Exception;
 use Illuminate\Http\Request;
@@ -37,10 +39,10 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param StoreOrderRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(StoreOrderRequest $request)
     {
         $order = new Order($request->all());
 
@@ -78,11 +80,11 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdateOrderRequest $request
      * @param Order $order
      * @return void
      */
-    public function update(Request $request, Order $order)
+    public function update(UpdateOrderRequest $request, Order $order)
     {
         $order->update($request->all());
 

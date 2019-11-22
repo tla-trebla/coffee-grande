@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreIngredientRequest;
+use App\Http\Requests\UpdateIngredientRequest;
 use App\Ingredient;
 use Exception;
 use Illuminate\Http\Request;
@@ -37,10 +39,10 @@ class IngredientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param StoreIngredientRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(StoreIngredientRequest $request)
     {
         $ingredient = new Ingredient($request->all());
 
@@ -78,11 +80,11 @@ class IngredientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdateIngredientRequest $request
      * @param Ingredient $ingredient
      * @return void
      */
-    public function update(Request $request, Ingredient $ingredient)
+    public function update(UpdateIngredientRequest $request, Ingredient $ingredient)
     {
         $ingredient->update($request->all());
 
