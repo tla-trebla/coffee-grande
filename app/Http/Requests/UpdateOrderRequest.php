@@ -13,7 +13,7 @@ class UpdateOrderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class UpdateOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required|exists:users,id',
+            'order_number' => 'required|string|unique:orders',
+            'status' => 'required|in:not paid,being processed,ready to take,sending,done,canceled|',
+            'name' => 'required|string|min:6|max:255',
+            'address' => 'required|string|min:6|max:255',
+            'phone' => 'required|numeric|phone_number|size:12',
+            'delivery_method' => 'required|in:take away,GOFOOD',
+            'delivery_cost' => 'required|numeric|min:0|not_in:0',
+            'discount' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+            'sub_total' => 'required|numeric|min:0|not_in:0',
+            'total' => 'required|numeric|min:0|not_in:0',
+            'expired_date' => 'required|date_format:Y-m-d H:i:s|after:1 hours',
         ];
     }
 }

@@ -13,7 +13,7 @@ class UpdateReservationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class UpdateReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required|exists:users,id',
+            'reservation_number' => 'required|string|unique:reservations',
+            'name' => 'required|string|min:6|max:255',
+            'phone' => 'required|numeric|phone_number|size:12',
+            'email' => 'required|email|min:6|max:255',
+            'date' => 'date|nullable',
+            'time' => 'required|regex:/(\d+\:\d+)/',
+            'description' => 'required|min:6|max:255',
+            'status' => 'required',
         ];
     }
 }
