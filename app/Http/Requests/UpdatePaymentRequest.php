@@ -13,7 +13,7 @@ class UpdatePaymentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdatePaymentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'order_id' => 'required|exists:orders,id|unique:payments',
+            'user_id' => 'required|exists:users',
+            'bank' => 'required|in:BCA,BRI,Mandiri,BNI,Maybank BII,Other',
+            'card_number' => 'required|numeric',
+            'card_name' => 'required|string|min:6|max:255',
         ];
     }
 }
