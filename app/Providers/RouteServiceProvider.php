@@ -23,7 +23,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::pattern('user', '[0-9]+');
+        Route::pattern('category', '[0-9]+');
+        Route::pattern('product', '[0-9]+');
+        Route::pattern('review', '[0-9]+');
+        Route::pattern('promotion', '[0-9]+');
+        Route::pattern('order', '[0-9]+');
+        Route::pattern('reservation', '[0-9]+');
+        Route::pattern('payment', '[0-9]+');
+        Route::pattern('ingredient', '[0-9]+');
 
         parent::boot();
     }
