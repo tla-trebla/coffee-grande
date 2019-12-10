@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Index from './Components/Users/Index';
-import Create from './Components/Users/Create';
-import Show from './Components/Users/Show';
-import Edit from './Components/Users/Edit';
+import Index from './components/users/Create';
+import Create from './components/users/Show';
+import Show from './components/users/Edit';
+import Edit from './components/users/Delete';
 import Delete from './Components/Users/Delete';
 import NotFound from './Components/NotFound';
 
