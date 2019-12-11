@@ -14,8 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>
         WebFont.load({
-            google: {
-                families: ['Source Sans Pro:400,600']
+            google:  {
+                families:  ['Source Sans Pro:400,600']
             }
         });
     </script>
@@ -24,9 +24,8 @@
 </head>
 <body>
 
-    <div id="app"></div>
 
-    @routes
-    <script src="{{ mix('js/app.js') }}"></script>
+
+<script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
